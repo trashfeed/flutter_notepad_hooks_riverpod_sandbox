@@ -22,20 +22,20 @@ class MemoPage extends HookConsumerWidget {
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          _header(ref),
+          _header(),
           _editor(ref),
         ],
       ),
     );
   }
 
-  Widget _header(WidgetRef ref) {
+  Widget _header() {
     return HookConsumer(builder: (BuildContext context, ref, child) {
       return Align(
         alignment: Alignment.centerRight,
         child: Text(
-          ref.watch(
-              memoStateNotifierProvider.select<String>((state) => state.wordCount)),
+          ref.watch(memoStateNotifierProvider
+              .select<String>((state) => state.wordCount)),
           style: TextStyle(color: Theme.of(useContext()).disabledColor),
         ),
       );
